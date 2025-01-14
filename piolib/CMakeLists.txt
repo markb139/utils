@@ -16,3 +16,7 @@ endif ()
 add_library (pio OBJECT piolib.c pio_rp1.c)
 target_include_directories(pio PRIVATE include)
 target_link_libraries(pio)
+
+add_library (pio_lib SHARED piolib.c pio_rp1.c)
+target_include_directories(pio_lib PRIVATE include)
+install(TARGETS pio_lib RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
